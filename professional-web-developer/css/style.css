@@ -11,8 +11,8 @@ License URI:license.txt
 -----------------------------------------------------------------------------------*/
 
 /*--------Google fonts importing--------*/
-@import url(http://fonts.googleapis.com/css?family=Questrial);
-@import url(http://fonts.googleapis.com/css?family=Quicksand);
+@import url(https://fonts.googleapis.com/css?family=Questrial);
+@import url(https://fonts.googleapis.com/css?family=Quicksand);
 
 /*--------General elements  */
 html { height: 100%;}
@@ -427,10 +427,7 @@ only screen and (min-device-pixel-ratio: 2) {
 		height: 21px;
 	}
 	#testimonials .next:after{background-position:-14px 0;}
-	.main-navigation a.opener{
-		background: url(../bg/opener2x.png);
-		background-size: 61px auto;
-	}
+
 	.main-navigation a.opener:hover {
 		background-position: 0 -94px;
 	}
@@ -1125,7 +1122,6 @@ div.wpcf7-mail-sent-ok {
 .main-navigation a.opener{
 	display: none;
 	float: right;
-	background: url(../bg/opener.png);
 	width:61px;
 	height: 41px;
 	text-indent: -9999px;

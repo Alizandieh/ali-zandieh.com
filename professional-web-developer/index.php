@@ -17,7 +17,7 @@
 
 	<link media="all" rel="stylesheet" href="css/style.css">
 	<link media="all" rel="stylesheet" href="css/prettyPhoto.css">	
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>	
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>	
 	<script type="text/javascript" src="js/jquery.main.js"></script>
 	<script type="text/javascript" src="js/retina.js"></script>
 	<script type="text/javascript" src="js/custom.js"></script>
@@ -116,63 +116,72 @@
 										<div class="progressbar-value" style="width:80%;"></div>									
 									</div>								
 								</div>							
+							</div>	
+							<div class="skill">								
+								<h3>Python</h3>								
+								<div class="bar">									
+									<span class="value">5/10</span>									
+									<div class="progressbar">										
+										<div class="progressbar-value" style="width:50%;"></div>									
+									</div>								
 								</div>							
-								<div class="skill">								
-									<h3>Java/J2EE</h3>								
-									<div class="bar">									
-										<span class="value">3/10</span>									
-										<div class="progressbar">										
-											<div class="progressbar-value" style="width:30%;"></div>									
-										</div>								
-									</div>							
-								</div>							
-								<div class="skill">								
-									<h3>Web design</h3>								
-									<div class="bar">									
-										<span class="value">3/10</span>									
-										<div class="progressbar">										
-											<div class="progressbar-value" style="width:30%;"></div>									
-										</div>								
-									</div>							
-								</div>	
-								<h2>CMS</h2>						
-								<div class="skill">								
-									<h3>Concrete5</h3>								
-									<div class="bar">									
-										<span class="value">10/10</span>									
-										<div class="progressbar">										
-											<div class="progressbar-value" style="width:100%;"></div>									
-										</div>								
-									</div>							
-								</div>		
-								<div class="skill">								
-									<h3>Joomla</h3>								
-									<div class="bar">									
-										<span class="value">6/10</span>									
-										<div class="progressbar">										
-											<div class="progressbar-value" style="width:60%;"></div>									
-										</div>								
-									</div>							
-								</div>	
-								<div class="skill">								
-									<h3>Wordpress</h3>								
-									<div class="bar">									
-										<span class="value">7/10</span>									
-										<div class="progressbar">										
-											<div class="progressbar-value" style="width:70%;"></div>									
-										</div>								
-									</div>							
-								</div>	
-								<div class="skill">								
-									<h3>Magento</h3>								
-									<div class="bar">									
-										<span class="value">4/10</span>									
-										<div class="progressbar">										
-											<div class="progressbar-value" style="width:40%;"></div>									
-										</div>								
-									</div>							
-								</div>					
 							</div>						
+							<div class="skill">								
+								<h3>Java/J2EE</h3>								
+								<div class="bar">									
+									<span class="value">3/10</span>									
+									<div class="progressbar">										
+										<div class="progressbar-value" style="width:30%;"></div>									
+									</div>								
+								</div>							
+							</div>							
+							<div class="skill">								
+								<h3>Web design</h3>								
+								<div class="bar">									
+									<span class="value">3/10</span>									
+									<div class="progressbar">										
+										<div class="progressbar-value" style="width:30%;"></div>									
+									</div>								
+								</div>							
+							</div>	
+							<h2>CMS</h2>						
+							<div class="skill">								
+								<h3>Concrete5</h3>								
+								<div class="bar">									
+									<span class="value">10/10</span>									
+									<div class="progressbar">										
+										<div class="progressbar-value" style="width:100%;"></div>									
+									</div>								
+								</div>							
+							</div>		
+							<div class="skill">								
+								<h3>Joomla</h3>								
+								<div class="bar">									
+									<span class="value">6/10</span>									
+									<div class="progressbar">										
+										<div class="progressbar-value" style="width:60%;"></div>									
+									</div>								
+								</div>							
+							</div>	
+							<div class="skill">								
+								<h3>Wordpress</h3>								
+								<div class="bar">									
+									<span class="value">7/10</span>									
+									<div class="progressbar">										
+										<div class="progressbar-value" style="width:70%;"></div>									
+									</div>								
+								</div>							
+							</div>	
+							<div class="skill">								
+								<h3>Magento</h3>								
+								<div class="bar">									
+									<span class="value">4/10</span>									
+									<div class="progressbar">										
+										<div class="progressbar-value" style="width:40%;"></div>									
+									</div>								
+								</div>							
+							</div>					
+						</div>						
 							<div class="experience">							
 								<h2>Experience</h2>							
 								<ul class="experience-list">								
@@ -215,7 +224,7 @@
 									</li>														
 								</ul>					
 							</div>
-						</div>				
+					</div>				
 					</section>				
 					<section class="block green" id="portfolio">					
 						<div class="block-holder">
@@ -313,13 +322,6 @@
 										<strong class="name"><span>www.goldenstitches.co.uk</span></strong>
 										<p>Side Project</p>
 									</li>
-									<li class="company">
-										<div class="image">
-											<a class="prettyPhoto[Photo]" href="img/mywk.jpg"><img alt="info.moneyweek.com" src="img/mywk-thumb.jpg"></a>
-										</div>
-										<strong class="name"><span>info.moneyweek.com</span></strong>
-										<p>Jellyfish</p>
-									</li>
 							</ul>
 						</div>
 					</div>				
@@ -400,7 +402,7 @@
 									<p class="hidden fn">Ali Zandieh</p>									
 									<p>Email: <a class="mail" href="mailto:ali.zandieh@gmail.com">Ali Zandieh</a></p>									
 									<p class="tel">Phone:  +44 741 2627 063</p>									
-									<p>Website: <a class="url" href="http://www.ali-zandieh.com/" title="www.ali-zandieh.com">www.ali-zandieh.com</a></p>								
+									<p>Website: <a class="url" href="/" title="www.ali-zandieh.com">www.ali-zandieh.com</a></p>								
 								</div>								
 								<div class="col">									
 									<address>										
@@ -411,10 +413,10 @@
 								</div>							
 							</div>
 							<ul class="social-networks">
-								<li><a href="http://www.facebook.com/ali.zandieh.18" target="_blank"><img alt="facebook" src="img/facebook.png"></a></li>
-								<li><a href="http://twitter.com/ali_zandieh" target="_blank"><img alt="twitter" src="img/twitter.png"></a></li>
-								<li><a href="http://plus.google.com/107044658433768921862" target="_blank"><img alt="google+" src="img/google+.png"></a></li>
-								<li><a href="http://www.linkedin.com/pub/ali-zandieh/3a/9b1/a4" target="_blank"><img alt="linkedin" src="img/linkedin.png"></a></li>
+								<li><a href="https://www.facebook.com/ali.zandieh.18" target="_blank"><img alt="facebook" src="img/facebook.png"></a></li>
+								<li><a href="https://twitter.com/ali_zandieh" target="_blank"><img alt="twitter" src="img/twitter.png"></a></li>
+								<li><a href="https://plus.google.com/107044658433768921862" target="_blank"><img alt="google+" src="img/google+.png"></a></li>
+								<li><a href="https://www.linkedin.com/pub/ali-zandieh/3a/9b1/a4" target="_blank"><img alt="linkedin" src="img/linkedin.png"></a></li>
 							</ul>						
 						</div>					
 					</div>				
