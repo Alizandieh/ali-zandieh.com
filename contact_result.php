@@ -1,8 +1,6 @@
 <?php
 
 
-adasdsad
-
 if(isset($_REQUEST["isvalid"])){
     
     $youremail = "ali.zandieh@gmail.com"; // Enter your email here!!
