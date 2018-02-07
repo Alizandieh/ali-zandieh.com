@@ -1,18 +1,5 @@
-<?php 
-
-class something {
-
-name = "ali";
-aa   = "";
-
-/*
-function test()
-{
-  
-}
-*/
-  
-}
+<?
+$foo = 1;
 
 
 ?>
