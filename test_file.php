@@ -1,4 +1,5 @@
 <?
+
 $foo = 1;
 
 $have_time = true;
