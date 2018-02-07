@@ -1,7 +1,18 @@
 <?php 
 
+class something {
 
-some php error should come up 
+name = "ali";
+aa   = "";
+
+/*
+function test()
+{
+  
+}
+*/
+  
+}
 
 
 ?>
