@@ -9,33 +9,6 @@
 	<meta name="keywords" content="Ali, Zandieh, Ali Zandieh, web developer, creative, curriculum, curriculum vitae, cv, personal, personal profile, personal vcard, portfolio, resume, vcard, virtual card, web designer, php, programmer, php developer, Conceret5 developer"/>
 	<meta name="description" content="Ali Zandieh, professional web developer personal homepage. check out his CV and portfolio. He could be helpful for your business development."/>
 
-<script type="text/javascript">
-
-
-<!-- This script randomly redirects visitors to different pages -->
-
-<!-- Begin
-var howMany = 2;  // max number of items listed below
-var page = new Array(howMany);
-
-page[0]="web-developer";
-page[1]="professional-web-developer";
-
-function rndnumber(){
-var randscript = -1;
-while (randscript < 0 || randscript > howMany || isNaN(randscript)){
-randscript = parseInt(Math.random()*(howMany));
-}
-return randscript;
-}
-quo = rndnumber();
-quox = page[quo];
-window.location=(quox);
-// End -->
-
-
-</script>
-
 
 	<title>Ali Zandieh - The web developer</title>	
 
@@ -44,7 +17,7 @@ window.location=(quox);
 
 	<link media="all" rel="stylesheet" href="css/style.css">
 	<link media="all" rel="stylesheet" href="css/prettyPhoto.css">	
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>	
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>	
 	<script type="text/javascript" src="js/jquery.main.js"></script>
 	<script type="text/javascript" src="js/retina.js"></script>
 	<script type="text/javascript" src="js/custom.js"></script>
@@ -70,7 +43,6 @@ window.location=(quox);
 		<div class="pagewidth">
 			<header class="site-header">
 				<div class="pagewidth">
-					<img alt="Ali Zandieh" class="logo" src="img/logo.png"  />
 					<nav class="main-navigation">
 						<a class="opener" href="#">Open menu</a>
 						<ul>
@@ -81,6 +53,10 @@ window.location=(quox);
 							<li><a href="#contacts" title="Contact">CONTACT</a></li>
 						</ul>
 					</nav>
+					<img alt="Ali Zandieh" class="logo" src="img/logo.png"  /><br/>
+					<!-- <p id="other_version">Visit <a href="../web-developer">The Other version</a> of my site too. </p> -->
+
+
 				</div>
 			</header>			
 			<section class="site-content">				
@@ -89,13 +65,13 @@ window.location=(quox);
 						<div class="visual">							
 							<div class="picture">								
 								<div class="holder">									
-									<img src="img/img01.jpg" alt="" width="380" height="380" >								
+									<img src="img/mypic.jpg" alt="" width="380" / >								
 								</div>							
 							</div>						
 						</div>
 						<div class="intro">							
 							<h1>Ali Zandieh</h1>							
-							<span class="title">Professional web developer</span>							
+							<span class="title">Professional Web Developer</span>							
 							<a href="#contacts" title="HIRE ME NOW" class="btn-red">HIRE ME NOW</a>							
 							<a href="#portfolio" title="PORTFOLIO" class="btn-green">PORTFOLIO</a>						
 						</div>					
@@ -140,64 +116,87 @@ window.location=(quox);
 										<div class="progressbar-value" style="width:80%;"></div>									
 									</div>								
 								</div>							
+							</div>	
+							<div class="skill">								
+								<h3>Python</h3>								
+								<div class="bar">									
+									<span class="value">5/10</span>									
+									<div class="progressbar">										
+										<div class="progressbar-value" style="width:50%;"></div>									
+									</div>								
 								</div>							
-								<div class="skill">								
-									<h3>Java/J2EE</h3>								
-									<div class="bar">									
-										<span class="value">3/10</span>									
-										<div class="progressbar">										
-											<div class="progressbar-value" style="width:30%;"></div>									
-										</div>								
-									</div>							
-								</div>							
-								<div class="skill">								
-									<h3>Web design</h3>								
-									<div class="bar">									
-										<span class="value">3/10</span>									
-										<div class="progressbar">										
-											<div class="progressbar-value" style="width:30%;"></div>									
-										</div>								
-									</div>							
-								</div>	
-								<h2>CMS</h2>						
-								<div class="skill">								
-									<h3>Concrete5</h3>								
-									<div class="bar">									
-										<span class="value">10/10</span>									
-										<div class="progressbar">										
-											<div class="progressbar-value" style="width:100%;"></div>									
-										</div>								
-									</div>							
-								</div>		
-								<div class="skill">								
-									<h3>Joomla</h3>								
-									<div class="bar">									
-										<span class="value">6/10</span>									
-										<div class="progressbar">										
-											<div class="progressbar-value" style="width:60%;"></div>									
-										</div>								
-									</div>							
-								</div>	
-								<div class="skill">								
-									<h3>Wordpress</h3>								
-									<div class="bar">									
-										<span class="value">7/10</span>									
-										<div class="progressbar">										
-											<div class="progressbar-value" style="width:70%;"></div>									
-										</div>								
-									</div>							
-								</div>					
 							</div>						
+							<div class="skill">								
+								<h3>Java/J2EE</h3>								
+								<div class="bar">									
+									<span class="value">3/10</span>									
+									<div class="progressbar">										
+										<div class="progressbar-value" style="width:30%;"></div>									
+									</div>								
+								</div>							
+							</div>							
+							<div class="skill">								
+								<h3>Web design</h3>								
+								<div class="bar">									
+									<span class="value">4/10</span>									
+									<div class="progressbar">										
+										<div class="progressbar-value" style="width:30%;"></div>									
+									</div>								
+								</div>							
+							</div>	
+							<h2>CMS</h2>	
+							<div class="skill">								
+								<h3>Magento</h3>								
+								<div class="bar">									
+									<span class="value">7/10</span>									
+									<div class="progressbar">										
+										<div class="progressbar-value" style="width:70%;"></div>									
+									</div>								
+								</div>							
+							</div>						
+							<div class="skill">								
+								<h3>Concrete5</h3>								
+								<div class="bar">									
+									<span class="value">8/10</span>									
+									<div class="progressbar">										
+										<div class="progressbar-value" style="width:80%;"></div>									
+									</div>								
+								</div>							
+							</div>		
+							<div class="skill">								
+								<h3>Joomla</h3>								
+								<div class="bar">									
+									<span class="value">4/10</span>									
+									<div class="progressbar">										
+										<div class="progressbar-value" style="width:40%;"></div>									
+									</div>								
+								</div>							
+							</div>	
+							<div class="skill">								
+								<h3>Wordpress</h3>								
+								<div class="bar">									
+									<span class="value">8/10</span>									
+									<div class="progressbar">										
+										<div class="progressbar-value" style="width:80%;"></div>									
+									</div>								
+								</div>							
+							</div>	
+				
+						</div>						
 							<div class="experience">							
 								<h2>Experience</h2>							
 								<ul class="experience-list">								
 									<li>									
-										<span class="year">2012 - current</span>									
-										<h3>PHP Developer - Jellyfish Online Marketing</h3>									
+										<span class="year">from 2012 - current</span>									
+										<h3>Senior Web Developer - Jellyfish Online Marketing</h3>									
 										<p>I joined Jellyfish - "Publishing" department in 2012 and I'm responsible for development and maintenance 
 											of the biggest magazines subscription website in UK (magazine.co.uk) 
-											plus more than 150 campaign sites for different magazine titles.<br/>
-											Check <a href="http://www.jellyfish.co.uk/agency/our-people/ali-zandieh" target="_blank">my profile</a> at Jellyfish.  </p>								
+											plus more than 150 campaign sites for different magazine titles.
+											<!--
+											<br/>
+											Check <a href="http://www.jellyfish.co.uk/agency/our-people/ali-zandieh" target="_blank">my profile</a> at Jellyfish.co.uk  
+											-->
+										</p>								
 									</li>								
 									<li>									
 										<span class="year">2012</span>									
@@ -206,7 +205,7 @@ window.location=(quox);
 											Moreover, I was responsible for preparing html newsletters and development of few side websites.</p>								
 									</li>								
 									<li>									
-										<span class="year">2010 - 2012</span>									
+										<span class="year">from 2010 - 2012</span>									
 										<h3>Web Developer - BlueBaboon Design</h3>									
 										<p>Started my career in UK with Bluebaboon after my graduation. I implemented and coded several websites for different variety of companies and businesses.<br/>
 											It was a great beginning and valuable experience in my profession.</p>								
@@ -230,7 +229,7 @@ window.location=(quox);
 									</li>														
 								</ul>					
 							</div>
-						</div>				
+					</div>				
 					</section>				
 					<section class="block green" id="portfolio">					
 						<div class="block-holder">
@@ -241,11 +240,13 @@ window.location=(quox);
 									<li><a data-filter=".side" title="Show Side Projects" href="#">Side Projects</a></li>
 									<li><a data-filter=".company" title="Show Company Works" href="#">Company Works</a></li>
 								</ul>
-								<p>Please note that...</p>
-								<ul class="list">
-									<li>"Side projects" are websites where design and coding have been completed by Ali Zandieh and have been fully signed off by himself<br><br></li>
-									<li>"Company works" are projects where the implementation and development has been the responsibility of or is the responsibility of Ali Zandieh but have been signed off by the company he was working for at the time or is currently working for.  </li>
-								</ul>
+								<div id="note">
+									<p>Please note that...</p>
+									<ul class="list">
+										<li>"Side projects" are websites where design and coding have been completed by Ali Zandieh and have been fully signed off by himself<br><br></li>
+										<li>"Company works" are projects where the implementation and development has been the responsibility of or is the responsibility of Ali Zandieh but have been signed off by the company he was working for at the time or is currently working for.  </li>
+									</ul>
+								</div>
 							</div>						
 							<div class="tab-content">
 								<ul class="images">
@@ -277,13 +278,6 @@ window.location=(quox);
 										<strong class="name"><span>www.goldensashbridal.com</span></strong>
 										<p>Side Project</p>
 									</li>
-									<li class="company">
-										<div class="image">
-											<a class="prettyPhoto[Print]" href="img/eva.jpg"><img alt="www.evavolodko.com" src="img/eva-thumb.jpg"></a>
-										</div>
-										<strong class="name"><span>www.evavolodko.com</span></strong>
-										<p>Bluebaboon Design</p>
-									</li>
 									<li class="side">
 										<div class="image">
 											<a class="prettyPhoto[Print]" href="img/dandl1.jpg"><img alt="www.dandluk.com" src="img/dandl-thumb1.jpg"></a>
@@ -298,13 +292,7 @@ window.location=(quox);
 										<strong class="name"><span>www.dandluk.com</span></strong>
 										<p>Side Project</p>
 									</li>
-									<li class="company">
-										<div class="image">
-											<a class="prettyPhoto[Identity]" href="img/tina1.jpg"><img alt="www.jazzsingerlondon.co.uk" src="img/tina-thumb1.jpg"></a>
-										</div>
-										<strong class="name"><span>www.jazzsingerlondon.co.uk</span></strong>
-										<p>Bluebaboon Design</p>
-									</li>
+
 									<li class="side">
 										<div class="image">
 											<a class="prettyPhoto[Website]" href="img/stitches1.jpg"><img alt="www.goldenstitches.co.uk" src="img/stitches-thumb1.jpg"></a>
@@ -312,26 +300,13 @@ window.location=(quox);
 										<strong class="name"><span>www.goldenstitches.co.uk</span></strong>
 										<p>Side Project</p>
 									</li>
-									<li class="company">
-										<div class="image">
-											<a class="prettyPhoto[Identity]" href="img/tina2.jpg"><img alt="www.jazzsingerlondon.co.uk" src="img/tina-thumb2.jpg"></a>
-										</div>
-										<strong class="name"><span>www.jazzsingerlondon.co.uk</span></strong>
-										<p>Bluebaboon Design</p>
-									</li>
+
 									<li class="side">
 										<div class="image">
 											<a class="prettyPhoto[Website]" href="img/stitches2.jpg"><img alt="www.goldenstitches.co.uk" src="img/stitches-thumb2.jpg"></a>
 										</div>
 										<strong class="name"><span>www.goldenstitches.co.uk</span></strong>
 										<p>Side Project</p>
-									</li>
-									<li class="company">
-										<div class="image">
-											<a class="prettyPhoto[Photo]" href="img/mywk.jpg"><img alt="info.moneyweek.com" src="img/mywk-thumb.jpg"></a>
-										</div>
-										<strong class="name"><span>info.moneyweek.com</span></strong>
-										<p>Jellyfish</p>
 									</li>
 							</ul>
 						</div>
@@ -380,8 +355,8 @@ window.location=(quox);
 									<li>
 										<div>	
 											<h4>Traveling</h4>										
-											<p>Traveling is a must when you live in a cold place like London. 
-												Ali Zandieh loves travelling to hot countries where a shinning sun and a beautiful beach are essential.</p>	
+											<p>Traveling is a must when you live in a cold place like London. Ali Zandieh loves to travel and visit new places
+                                especially visiting hot countries with shinning sun and beautiful beaches.</p>	
 										</div>	
 									</li>	
 								</ul>
@@ -411,9 +386,9 @@ window.location=(quox);
 								<div class="contact-columns">								
 									<div class="col">
 									<p class="hidden fn">Ali Zandieh</p>									
-									<p>Email: <a class="mail" href="mailto:ali.zandieh@gmail.com">Ali Zandieh</a></p>									
-									<p class="tel">Phone:  +44 741 2627 063</p>									
-									<p>Website: <a class="url" href="http://www.ali-zandieh.com/" title="www.ali-zandieh.com">www.ali-zandieh.com</a></p>								
+									<p>Email: <a class="mail" href="mailto:ali.zandieh@gmail.com">ali.zandieh@gmail.com</a></p>									
+									<!-- <p class="tel">Phone:  +44 </p> -->
+									<p>Website: <a class="url" href="/" title="www.ali-zandieh.com">www.ali-zandieh.com</a></p>								
 								</div>								
 								<div class="col">									
 									<address>										
@@ -424,10 +399,10 @@ window.location=(quox);
 								</div>							
 							</div>
 							<ul class="social-networks">
-								<li><a href="http://www.facebook.com/ali.zandieh.18" target="_blank"><img alt="facebook" src="img/facebook.png"></a></li>
-								<li><a href="http://twitter.com/ali_zandieh" target="_blank"><img alt="twitter" src="img/twitter.png"></a></li>
-								<li><a href="http://plus.google.com/107044658433768921862" target="_blank"><img alt="google+" src="img/google+.png"></a></li>
-								<li><a href="http://www.linkedin.com/pub/ali-zandieh/3a/9b1/a4" target="_blank"><img alt="linkedin" src="img/linkedin.png"></a></li>
+								<li><a href="https://www.facebook.com/ali.zandieh.18" target="_blank"><img alt="facebook" src="img/facebook.png"></a></li>
+								<!-- <li><a href="https://twitter.com/ali_zandieh" target="_blank"><img alt="twitter" src="img/twitter.png"></a></li> -->
+								<li><a href="https://plus.google.com/107044658433768921862" target="_blank"><img alt="google+" src="img/google+.png"></a></li>
+								<li><a href="https://www.linkedin.com/pub/ali-zandieh/3a/9b1/a4" target="_blank"><img alt="linkedin" src="img/linkedin.png"></a></li>
 							</ul>						
 						</div>					
 					</div>				
