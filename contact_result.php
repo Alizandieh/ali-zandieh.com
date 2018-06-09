@@ -3,7 +3,7 @@
 
 if(isset($_REQUEST["isvalid"])){
     
-    $youremail = "ali.zandieh@gmail.com"; // Enter your email here!!
+    $youremail = "ali.zandieh@gmail.com,info@goldensashbridal.co.uk"; // Enter your email here!!
     $usersubject = "ali-zandieh.com";
     $usersemail = $_POST["usersemail"];
     $usersname = $_POST["usersname"];
@@ -20,8 +20,8 @@ if(isset($_REQUEST["isvalid"])){
     
     {$userscomment}"; 
     
-    #$headers = 'From: Ali Zandieh website';
-    mail($youremail, $usersubject, $message);
+    $headers = 'From: admin@ali-zandieh.com';
+    mail($youremail, $usersubject, $message,$headers);
     
     die("success");
     

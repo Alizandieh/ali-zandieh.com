@@ -11,8 +11,8 @@ License URI:license.txt
 -----------------------------------------------------------------------------------*/
 
 /*--------Google fonts importing--------*/
-@import url(http://fonts.googleapis.com/css?family=Questrial);
-@import url(http://fonts.googleapis.com/css?family=Quicksand);
+@import url(https://fonts.googleapis.com/css?family=Questrial);
+@import url(https://fonts.googleapis.com/css?family=Quicksand);
 
 /*--------General elements  */
 html { height: 100%;}
@@ -427,10 +427,7 @@ only screen and (min-device-pixel-ratio: 2) {
 		height: 21px;
 	}
 	#testimonials .next:after{background-position:-14px 0;}
-	.main-navigation a.opener{
-		background: url(../bg/opener2x.png);
-		background-size: 61px auto;
-	}
+
 	.main-navigation a.opener:hover {
 		background-position: 0 -94px;
 	}
@@ -535,7 +532,7 @@ only screen and (min-device-pixel-ratio: 2) {
 #testimonials{
 	padding:142px 9999px 35px;
 	margin:0 -9970px;
-	min-height:700px;
+	min-height:470px;
 }
 #testimonials:after{
 	width:481px;
@@ -670,6 +667,12 @@ only screen and (min-device-pixel-ratio: 2) {
 	margin:0 0 44px;
 	position:relative;
 }
+
+.experience-list a {
+	text-decoration: none;
+	color: #00FFFF;
+}
+
 .experience-list li:before{
 	content:'';
 	position:absolute;
@@ -1119,7 +1122,6 @@ div.wpcf7-mail-sent-ok {
 .main-navigation a.opener{
 	display: none;
 	float: right;
-	background: url(../bg/opener.png);
 	width:61px;
 	height: 41px;
 	text-indent: -9999px;
@@ -1244,8 +1246,13 @@ img.aligncenter {
 	#testimonials .gallery .slider li {width: 410px;}
 }
 @media only screen and (max-width:999px){
+	p#other_version {
+		width: 700px;
+	}
+
 	#home {
 		margin: 0 -9999px;
+		padding: 0 9999px;
 	}
 	.site-header{
 		padding:0;
@@ -1355,7 +1362,7 @@ img.aligncenter {
 		padding:0 0 50px;
 		min-height:288px;
 	}
-	#testimonials .gallery .slider li{width: 374px; padding-right: 20px;}
+	#testimonials .gallery .slider li{width: 400px; padding-right: 20px;}
 	#testimonials .text{width:334px;}
 	#testimonials .text:first-child{width:304px;}
 	#testimonials .prev,
@@ -1417,6 +1424,9 @@ img.aligncenter {
 		width: 100%;
 	}
 	#testimonials .gallery .slider li{padding: 0 50px 0 0;}
+	.main-navigation { display: none; }
+	#note {display: none;}
+
 }
 @media only screen and (max-width:540px){
 	body,
@@ -1455,7 +1465,7 @@ img.aligncenter {
 	}
 	.picture img{
 		width:238px;
-		height:238px;
+		height:auto;
 	}
 	.site-content h1{
 		font-size:48px;
@@ -1525,7 +1535,7 @@ img.aligncenter {
 	
 	#testimonials .gallery{min-height:262px;}
 	#testimonials .prev,
-	#testimonials .next{bottom:51px;}
+	#testimonials .next{bottom:20px;}
 	#contacts{padding:35px 10px 27px;}
 	.contact-form{
 		float:none;
