@@ -530,17 +530,17 @@ main hr {
 	border-width: 5px 0 0;
 	margin: 19px auto 12px;
 	height: 0;
-	width: 100px;
+	width: 200px;
 }
 
-main .site-header .logo {
+.site-header .logo {
 	display: inline-block;
 	vertical-align: middle;
-	margin: 0 0 36px 0;
+	margin: 10px 0 36px 10px;
 	padding: 0;
 }
 
-main .site-header .logo a {
+.site-header .logo a {
 	display: block;
 	margin: 0;
 	padding: 0;
@@ -630,9 +630,14 @@ main .site-header .logo a {
 		font: 14px/27px "montserrat-regular", sans-serif;
 	}
 
-	main .site-header .logo a {
-		width: 95px;
-		height: 66px;
+	.site-header .logo {
+		width: 100%;
+	}
+
+	.site-header .logo a {
+		width: 200px;
+		height: 72px;
+		margin: 0 auto;
 	}
 
 }
