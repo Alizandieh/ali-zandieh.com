@@ -7,11 +7,5 @@
     "directory": "./public",
     "binding": "ASSETS",
     "not_found_handling": "single-page-application"
-  },
-  "routes": [
-    {
-      "pattern": "ali-zandieh.com",
-      "custom_domain": true
-    }
-  ]
+  }
 }
