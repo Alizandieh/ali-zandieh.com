@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+
+# Wrangler / Cloudflare local state and build output
+.wrangler/
+.dev.vars
+.env
+.env.*
+!.env.example
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor and IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Test and coverage output
+coverage/

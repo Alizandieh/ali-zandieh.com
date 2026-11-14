@@ -1,0 +1,606 @@
+@font-face {
+  font-family: 'Inter';
+  src: url('./fonts/inter-var.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: #050507;
+  color: #fff;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  overflow: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+
+button {
+  font-family: inherit;
+  border: 0;
+  padding: 0;
+  background: none;
+  color: inherit;
+}
+
+::selection {
+  background: rgba(74, 110, 255, 0.45);
+  color: transparent;
+}
+
+:focus-visible {
+  outline: 1px solid rgba(185, 171, 255, 0.85);
+  outline-offset: 4px;
+}
+
+#stage {
+  position: fixed;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #050507;
+  z-index: 1;
+}
+
+/* ------------------------------------------------------------------ */
+/* The transparent DOM copy of the printed page                        */
+/* ------------------------------------------------------------------ */
+
+.layer {
+  position: fixed;
+  left: 0;
+  top: 0;
+  transform-origin: 0 0;
+  pointer-events: none;
+  z-index: 2;
+  color: transparent;
+  transition: opacity 0.3s ease;
+  will-change: transform;
+}
+
+.layer.hidden {
+  opacity: 0;
+}
+
+.layer.hidden * {
+  pointer-events: none !important;
+}
+
+.layer .nav {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: var(--nav-h, 80px);
+}
+
+.layer .word,
+.layer .nav-link,
+.layer .dot,
+.layer .signin {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  pointer-events: auto;
+  user-select: text;
+}
+
+.layer .nav-link,
+.layer .signin {
+  cursor: pointer;
+}
+
+.layer .panel {
+  position: absolute;
+  left: 0;
+  top: var(--panel-top, 90px);
+  width: 100%;
+  height: var(--panel-h, 600px);
+}
+
+.layer .eyebrow,
+.layer .line,
+.layer .pill,
+.layer .read,
+.layer .meta {
+  position: absolute;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.layer .eyebrow,
+.layer .line,
+.layer .meta {
+  user-select: text;
+}
+
+.layer .headline {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+}
+
+.layer .sub {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+}
+
+.layer .actions {
+  position: absolute;
+  inset: 0;
+}
+
+.layer .pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+  cursor: pointer;
+  color: transparent;
+  border-radius: 6px;
+}
+
+.layer .read {
+  display: flex;
+  align-items: center;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.layer .meta {
+  left: var(--pad, 30px);
+  right: var(--pad, 30px);
+  display: flex;
+  justify-content: space-between;
+}
+
+.layer .meta span {
+  position: static;
+  user-select: text;
+}
+
+/* ------------------------------------------------------------------ */
+/* Definitions view                                                    */
+/* ------------------------------------------------------------------ */
+
+.defs {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.defs.open {
+  opacity: 1;
+}
+
+.defs-col {
+  position: absolute;
+  left: 32.4%;
+  width: 33.9%;
+  top: calc(35.9% - 1.17vw);
+  color: rgba(255, 255, 255, 0.6);
+  pointer-events: none;
+}
+
+.defs.open .defs-col {
+  pointer-events: auto;
+}
+
+.defs h2 {
+  margin: 0 0 2.4vw;
+  font-size: 1.36vw;
+  font-weight: 650;
+  line-height: 1.05;
+  letter-spacing: -0.022em;
+  color: #ffffff;
+}
+
+.defs p {
+  margin: 0 0 1.05vw;
+  font-size: 0.73vw;
+  line-height: 1.72;
+  font-weight: 400;
+  letter-spacing: 0.002em;
+}
+
+.defs p:last-child {
+  margin-bottom: 0;
+}
+
+.defs strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.defs ::selection {
+  background: rgba(74, 110, 255, 0.45);
+  color: #fff;
+}
+
+/* ------------------------------------------------------------------ */
+/* Back sliver label                                                   */
+/* ------------------------------------------------------------------ */
+
+.back {
+  position: fixed;
+  left: 21.9%;
+  top: 23.8%;
+  transform: translate(-50%, -50%);
+  z-index: 6;
+  font-size: 0.66vw;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  color: #ffffff;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: color 0.2s ease, opacity 0.25s ease;
+  white-space: nowrap;
+}
+
+.back.on {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.back:hover,
+.back:focus-visible {
+  color: #b9abff;
+}
+
+/* ------------------------------------------------------------------ */
+/* Static fallback                                                     */
+/* ------------------------------------------------------------------ */
+
+.fallback {
+  display: none;
+}
+
+body.static {
+  overflow: auto;
+}
+
+body.static #stage,
+body.static .layer,
+body.static .defs,
+body.static .back {
+  display: none !important;
+}
+
+body.static .fallback {
+  display: block;
+  position: relative;
+  min-height: 100vh;
+  background:
+    radial-gradient(120% 80% at 18% -10%, rgba(130, 120, 190, 0.16), transparent 55%),
+    radial-gradient(90% 60% at 90% 110%, rgba(70, 110, 150, 0.12), transparent 60%),
+    #050507;
+}
+
+.fb-nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.4rem 5.5%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.fb-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.fb-mark {
+  width: 16px;
+  height: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 3px;
+  background:
+    linear-gradient(135deg, transparent 48%, rgba(255, 255, 255, 0.85) 49%, rgba(255, 255, 255, 0.85) 51%, rgba(255, 255, 255, 0.16) 52%);
+}
+
+.fb-links {
+  display: flex;
+  gap: 0.6rem;
+  margin-left: auto;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.fb-links a:hover { color: #fff; }
+.fb-links span { color: rgba(255, 255, 255, 0.3); }
+
+.fb-signin {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.fb-signin:hover { color: #fff; }
+
+.fb-hero {
+  position: relative;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 12vh 5.5% 10vh;
+}
+
+.fb-eyebrow {
+  margin: 0 0 2.2rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.38);
+}
+
+.fb-hero h1 {
+  margin: 0;
+  font-size: clamp(3.4rem, 7.8vw, 7.4rem);
+  font-weight: 500;
+  line-height: 0.97;
+  letter-spacing: -0.045em;
+  background: linear-gradient(180deg, #dcdce0, #bdbdc3);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.fb-sub {
+  max-width: 34rem;
+  margin: 2rem 0 0;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.fb-actions {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2.6rem;
+}
+
+.fb-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 116px;
+  height: 40px;
+  border-radius: 6px;
+  background: #e9e9ed;
+  color: #101013;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.fb-pill:hover { background: #36d67e; }
+
+.fb-read {
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-bottom: 1px solid transparent;
+}
+
+.fb-read:hover { border-bottom-color: #fff; }
+
+.fb-meta {
+  display: flex;
+  justify-content: space-between;
+  margin: 9rem 0 0;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.34);
+}
+
+.fb-terms {
+  max-width: 36rem;
+  margin: 0 auto;
+  padding: 6rem 5.5% 10rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.fb-terms h2 {
+  margin: 0 0 2rem;
+  font-size: 1.8rem;
+  font-weight: 650;
+  letter-spacing: -0.022em;
+  color: #fff;
+}
+
+.fb-terms p {
+  margin: 0 0 1.4rem;
+  font-size: 0.95rem;
+  line-height: 1.72;
+}
+
+.fb-terms strong { color: #fff; font-weight: 600; }
+
+/* ------------------------------------------------------------------ */
+/* Small screens                                                       */
+/* ------------------------------------------------------------------ */
+
+@media (max-width: 760px) {
+  .defs-col {
+    left: 8%;
+    width: 84%;
+    top: 30%;
+  }
+
+  .defs h2 {
+    font-size: 7vw;
+    margin-bottom: 6vw;
+  }
+
+  .defs p {
+    font-size: 3.6vw;
+    line-height: 1.6;
+    margin-bottom: 4vw;
+  }
+
+  .back {
+    font-size: 2.8vw;
+    left: 20.4%;
+    top: 23.2%;
+  }
+
+  .fb-hero {
+    padding-top: 14vh;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .layer,
+  .defs,
+  .back {
+    transition-duration: 0.01s !important;
+  }
+}
+
+/* Portfolio adaptation: an editorial résumé view behind the glass cover. */
+.portfolio {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-color: rgba(255,255,255,.25) transparent;
+  pointer-events: none;
+}
+.portfolio .portfolio-col {
+  position: relative;
+  top: auto;
+  left: auto;
+  width: min(920px, 82%);
+  margin: 28vh auto 8vh;
+  color: rgba(255,255,255,.66);
+  pointer-events: none;
+}
+.portfolio.open .portfolio-col { pointer-events: auto; }
+.portfolio-kicker {
+  margin: 0 0 14px;
+  color: rgba(255,255,255,.45);
+  font-size: 11px;
+  font-weight: 550;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.portfolio-kicker span { color: #b9abff; padding: 0 .4em; }
+.portfolio h2 {
+  max-width: 760px;
+  margin: 0 0 18px;
+  font-size: clamp(30px, 3.3vw, 48px);
+  line-height: 1.04;
+  letter-spacing: -.045em;
+  font-weight: 550;
+}
+.portfolio-summary {
+  max-width: 760px;
+  margin: 0;
+  font-size: clamp(15px, 1.15vw, 17px);
+  line-height: 1.7;
+  color: rgba(255,255,255,.62);
+}
+.portfolio-section { margin-top: 54px; scroll-margin-top: 26px; }
+.portfolio h3,
+.fb-portfolio h3 {
+  margin: 0 0 18px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.47);
+}
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+.metric {
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 7px;
+  padding: 17px 20px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(255,255,255,.055), rgba(255,255,255,.015));
+}
+.metric strong { color: #fff; font-size: clamp(24px, 2.5vw, 34px); font-weight: 600; letter-spacing: -.04em; }
+.metric span { color: rgba(255,255,255,.52); font-size: 12px; }
+.stack-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.stack-item {
+  padding: 17px 19px;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 10px;
+  background: rgba(255,255,255,.025);
+}
+.stack-item h4, .education-grid h4 { margin: 0 0 8px; color: #c6baff; font-size: 12px; font-weight: 600; }
+.stack-item p, .education-grid p { margin: 0; font-size: 13px; line-height: 1.65; color: rgba(255,255,255,.61); }
+.experience-list { border-top: 1px solid rgba(255,255,255,.12); }
+.role { padding: 21px 0 22px; border-bottom: 1px solid rgba(255,255,255,.12); }
+.role-head { display: flex; justify-content: space-between; gap: 24px; align-items: baseline; }
+.role-head h4 { margin: 0; font-size: 16px; font-weight: 550; color: #f5f4f8; }
+.role-head h4 span { color: rgba(255,255,255,.53); font-weight: 400; }
+.role time { flex: none; color: rgba(255,255,255,.4); font-size: 12px; }
+.role ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px 25px; margin: 14px 0 0; padding-left: 17px; color: rgba(255,255,255,.59); font-size: 13px; line-height: 1.6; }
+.role li::marker { color: #b9abff; }
+.education-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.education-grid article { padding: 18px; border-left: 1px solid rgba(185,171,255,.55); background: rgba(255,255,255,.025); }
+.education-grid p span { display: block; color: rgba(255,255,255,.4); margin-top: 4px; }
+.portfolio-footer { display: flex; justify-content: space-between; gap: 18px; align-items: center; padding: 22px 0 12px; margin-top: 50px; border-top: 1px solid rgba(255,255,255,.16); font-size: 13px; }
+.portfolio-footer a { color: rgba(255,255,255,.72); transition: color .2s ease; }
+.portfolio-footer a:hover { color: #c6baff; }
+.portfolio-footer div { display: flex; gap: 22px; }
+.fb-portfolio { max-width: 1040px; margin: 0 auto; padding: 3rem 5.5% 6rem; color: rgba(255,255,255,.65); }
+.fb-portfolio section { margin: 0 0 3.5rem; scroll-margin-top: 24px; }
+.fb-portfolio h2 { margin: 0 0 16px; max-width: 760px; color: #fff; font-size: clamp(2rem,5vw,3rem); line-height: 1.05; letter-spacing: -.04em; }
+.fb-portfolio section > p:not(.portfolio-kicker) { max-width: 760px; line-height: 1.7; }
+.fb-portfolio .role p { color: rgba(255,255,255,.59); font-size: 13px; line-height: 1.6; }
+.fb-portfolio .portfolio-footer { margin-top: 0; }
+.fb-hero .fb-pill { text-decoration: none; }
+@media (max-width: 760px) {
+  .portfolio .portfolio-col { width: 84%; margin: 245px auto 54px; }
+  .portfolio-kicker { font-size: 9px; letter-spacing: .11em; }
+  .portfolio h2 { font-size: 30px; }
+  .portfolio-summary { font-size: 14px; }
+  .portfolio-section { margin-top: 38px; }
+  .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .metric { min-height: 82px; padding: 13px; }
+  .metric span { font-size: 11px; }
+  .stack-grid { grid-template-columns: 1fr; }
+  .role-head { display: block; }
+  .role-head h4 { font-size: 15px; }
+  .role time { display: block; margin-top: 5px; }
+  .role ul { grid-template-columns: 1fr; }
+  .education-grid { grid-template-columns: 1fr; }
+  .portfolio-footer { display: block; }
+  .portfolio-footer div { margin-top: 15px; gap: 18px; }
+  .fb-portfolio { padding-top: 2rem; }
+  .fb-portfolio .stack-grid { grid-template-columns: 1fr; }
+  .fb-portfolio .role-head { display: block; }
+  .fb-portfolio .role time { display: block; margin-top: 5px; }
+  .fb-portfolio .education-grid { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-footer a { transition: none; }
+}
