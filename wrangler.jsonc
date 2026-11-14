@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "ali-zandieh",
+  "name": "ali-zandieh-website",
   "main": "src/worker.js",
   "compatibility_date": "2026-11-01",
   "assets": {
@@ -9,6 +9,9 @@
     "not_found_handling": "single-page-application"
   },
   "routes": [
-    { "pattern": "ali-zandieh.com", "custom_domain": true }
+    {
+      "pattern": "ali-zandieh.com",
+      "custom_domain": true
+    }
   ]
 }
