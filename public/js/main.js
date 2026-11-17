@@ -420,6 +420,8 @@ async function boot() {
     navLinks: Array.from(document.querySelectorAll('.nav-link')),
     dots: Array.from(document.querySelectorAll('.dot')),
     signin: $('signin'),
+    burger: $('burger'),
+    menu: $('menu'),
     meta: $('meta'),
   };
 
@@ -510,6 +512,8 @@ async function boot() {
     dom.signin.style.right = `${state.layout.nav.pad}px`;
     dom.signin.style.fontSize = `${state.layout.nav.linkSize}px`;
     dom.signin.style.fontWeight = '500';
+    dom.signin.style.display = state.layout.small ? 'none' : 'flex';
+    dom.burger.style.display = state.layout.small ? 'flex' : 'none';
   }
 
   function styleNavDom() {
@@ -1013,6 +1017,46 @@ async function boot() {
         });
       }, 900);
     });
+  });
+
+  function setMenu(open) {
+    dom.menu.hidden = !open;
+    dom.burger.setAttribute('aria-expanded', String(open));
+    dom.burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  }
+
+  const fbBurger = document.querySelector('.fb-burger');
+  const fbMenu = document.getElementById('fb-menu');
+  fbBurger?.addEventListener('click', () => {
+    const open = fbMenu.hidden;
+    fbMenu.hidden = !open;
+    fbBurger.setAttribute('aria-expanded', String(open));
+    fbBurger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  });
+  fbMenu?.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => {
+    fbMenu.hidden = true;
+    fbBurger.setAttribute('aria-expanded', 'false');
+    fbBurger.setAttribute('aria-label', 'Open menu');
+  }));
+
+  dom.burger.addEventListener('click', () => setMenu(dom.menu.hidden));
+  dom.menu.querySelectorAll('a').forEach((a) => {
+    a.addEventListener('click', (e) => {
+      setMenu(false);
+      if (state.mode !== 'idle' || a.hash === '') return;
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      shatter();
+      window.setTimeout(() => {
+        target?.scrollIntoView({
+          behavior: reduceMotion.matches ? 'auto' : 'smooth',
+          block: 'start',
+        });
+      }, 900);
+    });
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') setMenu(false);
   });
 
   backBtn.addEventListener('click', reassemble);

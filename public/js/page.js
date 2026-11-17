@@ -82,7 +82,7 @@ export function measureTracked(text, size, weight, tracking) {
 export function measureNavLinks(layout) {
   if (layout.small) return [];
   const { linkSize } = layout.nav;
-  const texts = ['Platform', 'Impact', 'Experience'];
+  const texts = ['Skills', 'Impact', 'Experience', 'Portfolio'];
   const tracking = linkSize * 0.01;
   const dotGap = Math.max(linkSize * 0.62, 6);
   const items = [];
@@ -92,7 +92,7 @@ export function measureNavLinks(layout) {
     const w = measureTracked(text, linkSize, 500, tracking);
     items.push({ kind: 'link', index: i, text, x, w, tracking });
     x += w + dotGap;
-    if (i < 2) {
+    if (i < 3) {
       const dw = measureTracked('·', linkSize, 500, 0);
       items.push({ kind: 'dot', index: i, text: '·', x, w: dw, tracking: 0 });
       x += dw + dotGap;
@@ -287,8 +287,10 @@ export function drawNav(canvas, layout, state, links) {
   }
 
   // Sign in
-  const signText = 'Contact';
-  const signW = measureTracked(signText, n.linkSize, 500, 0);
-  ctx.fillStyle = 'rgba(255,255,255,0.6)';
-  drawTracked(ctx, signText, blockW - n.pad - signW, cy + n.linkSize * 0.35, 0);
+  if (!layout.small) {
+    const signText = 'Contact';
+    const signW = measureTracked(signText, n.linkSize, 500, 0);
+    ctx.fillStyle = 'rgba(255,255,255,0.6)';
+    drawTracked(ctx, signText, blockW - n.pad - signW, cy + n.linkSize * 0.35, 0);
+  }
 }

@@ -1,5 +1,6 @@
 # Dependencies
 node_modules/
+screenshots/
 
 # Wrangler / Cloudflare local state and build output
 .wrangler/

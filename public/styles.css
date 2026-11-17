@@ -6,9 +6,12 @@
   font-display: swap;
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -24,7 +27,10 @@ body {
   overflow: hidden;
 }
 
-a { color: inherit; text-decoration: none; }
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
 button {
   font-family: inherit;
@@ -105,6 +111,88 @@ button {
   cursor: pointer;
 }
 
+.burger,
+.fb-burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.burger span,
+.fb-burger span {
+  display: block;
+  width: 20px;
+  height: 1.5px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.7);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.burger:hover span,
+.fb-burger:hover span {
+  background: #fff;
+}
+
+.burger[aria-expanded="true"] span:nth-child(1),
+.fb-burger[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+
+.burger[aria-expanded="true"] span:nth-child(2),
+.fb-burger[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger[aria-expanded="true"] span:nth-child(3),
+.fb-burger[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
+.menu,
+.fb-menu {
+  position: absolute;
+  top: 100%;
+  right: 5.5%;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  min-width: 180px;
+  padding: 0.6rem 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  background: rgba(12, 12, 16, 0.96);
+  backdrop-filter: blur(12px);
+  pointer-events: auto;
+}
+
+.menu[hidden],
+.fb-menu[hidden] {
+  display: none;
+}
+
+.menu a,
+.fb-menu a {
+  padding: 0.7rem 1.2rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.menu a:hover,
+.fb-menu a:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
 .layer .panel {
   position: absolute;
   left: 0;
@@ -183,6 +271,7 @@ button {
   position: fixed;
   inset: 0;
   z-index: 5;
+  isolation: isolate;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.4s ease;
@@ -245,7 +334,7 @@ button {
   left: 21.9%;
   top: 23.8%;
   transform: translate(-50%, -50%);
-  z-index: 6;
+  z-index: 100;
   font-size: 0.66vw;
   font-weight: 500;
   letter-spacing: 0.01em;
@@ -331,15 +420,22 @@ body.static .fallback {
   color: rgba(255, 255, 255, 0.6);
 }
 
-.fb-links a:hover { color: #fff; }
-.fb-links span { color: rgba(255, 255, 255, 0.3); }
+.fb-links a:hover {
+  color: #fff;
+}
+
+.fb-links span {
+  color: rgba(255, 255, 255, 0.3);
+}
 
 .fb-signin {
   font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.6);
 }
 
-.fb-signin:hover { color: #fff; }
+.fb-signin:hover {
+  color: #fff;
+}
 
 .fb-hero {
   position: relative;
@@ -396,7 +492,9 @@ body.static .fallback {
   transition: background 0.2s ease;
 }
 
-.fb-pill:hover { background: #36d67e; }
+.fb-pill:hover {
+  background: #36d67e;
+}
 
 .fb-read {
   font-size: 0.85rem;
@@ -404,7 +502,9 @@ body.static .fallback {
   border-bottom: 1px solid transparent;
 }
 
-.fb-read:hover { border-bottom-color: #fff; }
+.fb-read:hover {
+  border-bottom-color: #fff;
+}
 
 .fb-meta {
   display: flex;
@@ -435,7 +535,10 @@ body.static .fallback {
   line-height: 1.72;
 }
 
-.fb-terms strong { color: #fff; font-weight: 600; }
+.fb-terms strong {
+  color: #fff;
+  font-weight: 600;
+}
 
 /* ------------------------------------------------------------------ */
 /* Small screens                                                       */
@@ -468,9 +571,40 @@ body.static .fallback {
   .fb-hero {
     padding-top: 14vh;
   }
+
+  .layer .signin,
+  .fb-signin {
+    display: none;
+  }
+
+  .layer .burger,
+  .fb-burger {
+    display: flex;
+  }
+
+  .layer .burger {
+    position: absolute;
+    right: 5.5%;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: auto;
+  }
+
+  .fb-burger {
+    margin-left: auto;
+  }
+
+  .fb-nav {
+    position: relative;
+  }
+
+  .fb-menu {
+    top: calc(100% - 0.4rem);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .layer,
   .defs,
   .back {
@@ -482,28 +616,38 @@ body.static .fallback {
 .portfolio {
   overflow-y: auto;
   overscroll-behavior: contain;
-  scrollbar-color: rgba(255,255,255,.25) transparent;
+  scrollbar-color: rgba(255, 255, 255, .25) transparent;
   pointer-events: none;
 }
+
 .portfolio .portfolio-col {
   position: relative;
   top: auto;
   left: auto;
-  width: min(920px, 82%);
-  margin: 28vh auto 8vh;
-  color: rgba(255,255,255,.66);
+  width: min(920px, 55%);
+  margin: 28vh 0 8vh 30%;
+  color: rgba(255, 255, 255, .66);
   pointer-events: none;
 }
-.portfolio.open .portfolio-col { pointer-events: auto; }
+
+.portfolio.open .portfolio-col {
+  pointer-events: auto;
+}
+
 .portfolio-kicker {
   margin: 0 0 14px;
-  color: rgba(255,255,255,.45);
+  color: rgba(255, 255, 255, .45);
   font-size: 11px;
   font-weight: 550;
   letter-spacing: .16em;
   text-transform: uppercase;
 }
-.portfolio-kicker span { color: #b9abff; padding: 0 .4em; }
+
+.portfolio-kicker span {
+  color: #b9abff;
+  padding: 0 .4em;
+}
+
 .portfolio h2 {
   max-width: 760px;
   margin: 0 0 18px;
@@ -512,14 +656,20 @@ body.static .fallback {
   letter-spacing: -.045em;
   font-weight: 550;
 }
+
 .portfolio-summary {
   max-width: 760px;
   margin: 0;
   font-size: clamp(15px, 1.15vw, 17px);
   line-height: 1.7;
-  color: rgba(255,255,255,.62);
+  color: rgba(255, 255, 255, .62);
 }
-.portfolio-section { margin-top: 54px; scroll-margin-top: 26px; }
+
+.portfolio-section {
+  margin-top: 54px;
+  scroll-margin-top: 26px;
+}
+
 .portfolio h3,
 .fb-portfolio h3 {
   margin: 0 0 18px;
@@ -527,13 +677,15 @@ body.static .fallback {
   font-weight: 600;
   letter-spacing: .15em;
   text-transform: uppercase;
-  color: rgba(255,255,255,.47);
+  color: rgba(255, 255, 255, .47);
 }
+
 .metrics {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 12px;
 }
+
 .metric {
   min-height: 100px;
   display: flex;
@@ -541,66 +693,338 @@ body.static .fallback {
   justify-content: center;
   gap: 7px;
   padding: 17px 20px;
-  border: 1px solid rgba(255,255,255,.12);
+  border: 1px solid rgba(255, 255, 255, .12);
   border-radius: 12px;
-  background: linear-gradient(135deg, rgba(255,255,255,.055), rgba(255,255,255,.015));
+  background: linear-gradient(135deg, rgba(255, 255, 255, .055), rgba(255, 255, 255, .015));
 }
-.metric strong { color: #fff; font-size: clamp(24px, 2.5vw, 34px); font-weight: 600; letter-spacing: -.04em; }
-.metric span { color: rgba(255,255,255,.52); font-size: 12px; }
-.stack-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+
+.metric strong {
+  color: #fff;
+  font-size: clamp(24px, 2.5vw, 34px);
+  font-weight: 600;
+  letter-spacing: -.04em;
+}
+
+.metric span {
+  color: rgba(255, 255, 255, .52);
+  font-size: 12px;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.project {
+  display: block;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, .1);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, .025);
+  transition: border-color .2s ease, transform .2s ease;
+}
+
+.project img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1 !important;
+  object-fit: cover;
+  object-position: top;
+  background: rgba(255, 255, 255, .04);
+  transition: transform .4s ease;
+}
+
+.project-name {
+  display: block;
+  padding: 13px 16px;
+  color: rgba(255, 255, 255, .8);
+  font-size: 13px;
+  font-weight: 550;
+}
+
+.project:hover {
+  border-color: rgba(185, 171, 255, .55);
+  transform: translateY(-2px);
+}
+
+.project:hover img {
+  transform: scale(1.02);
+}
+
+.project:focus-visible {
+  outline-offset: 3px;
+}
+
+.stack-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
 .stack-item {
   padding: 17px 19px;
-  border: 1px solid rgba(255,255,255,.1);
+  border: 1px solid rgba(255, 255, 255, .1);
   border-radius: 10px;
-  background: rgba(255,255,255,.025);
+  background: rgba(255, 255, 255, .025);
 }
-.stack-item h4, .education-grid h4 { margin: 0 0 8px; color: #c6baff; font-size: 12px; font-weight: 600; }
-.stack-item p, .education-grid p { margin: 0; font-size: 13px; line-height: 1.65; color: rgba(255,255,255,.61); }
-.experience-list { border-top: 1px solid rgba(255,255,255,.12); }
-.role { padding: 21px 0 22px; border-bottom: 1px solid rgba(255,255,255,.12); }
-.role-head { display: flex; justify-content: space-between; gap: 24px; align-items: baseline; }
-.role-head h4 { margin: 0; font-size: 16px; font-weight: 550; color: #f5f4f8; }
-.role-head h4 span { color: rgba(255,255,255,.53); font-weight: 400; }
-.role time { flex: none; color: rgba(255,255,255,.4); font-size: 12px; }
-.role ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px 25px; margin: 14px 0 0; padding-left: 17px; color: rgba(255,255,255,.59); font-size: 13px; line-height: 1.6; }
-.role li::marker { color: #b9abff; }
-.education-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-.education-grid article { padding: 18px; border-left: 1px solid rgba(185,171,255,.55); background: rgba(255,255,255,.025); }
-.education-grid p span { display: block; color: rgba(255,255,255,.4); margin-top: 4px; }
-.portfolio-footer { display: flex; justify-content: space-between; gap: 18px; align-items: center; padding: 22px 0 12px; margin-top: 50px; border-top: 1px solid rgba(255,255,255,.16); font-size: 13px; }
-.portfolio-footer a { color: rgba(255,255,255,.72); transition: color .2s ease; }
-.portfolio-footer a:hover { color: #c6baff; }
-.portfolio-footer div { display: flex; gap: 22px; }
-.fb-portfolio { max-width: 1040px; margin: 0 auto; padding: 3rem 5.5% 6rem; color: rgba(255,255,255,.65); }
-.fb-portfolio section { margin: 0 0 3.5rem; scroll-margin-top: 24px; }
-.fb-portfolio h2 { margin: 0 0 16px; max-width: 760px; color: #fff; font-size: clamp(2rem,5vw,3rem); line-height: 1.05; letter-spacing: -.04em; }
-.fb-portfolio section > p:not(.portfolio-kicker) { max-width: 760px; line-height: 1.7; }
-.fb-portfolio .role p { color: rgba(255,255,255,.59); font-size: 13px; line-height: 1.6; }
-.fb-portfolio .portfolio-footer { margin-top: 0; }
-.fb-hero .fb-pill { text-decoration: none; }
+
+.stack-item h4,
+.education-grid h4 {
+  margin: 0 0 8px;
+  color: #c6baff;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.stack-item p,
+.education-grid p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, .61);
+}
+
+.experience-list {
+  border-top: 1px solid rgba(255, 255, 255, .12);
+}
+
+.role {
+  padding: 21px 0 22px;
+  border-bottom: 1px solid rgba(255, 255, 255, .12);
+}
+
+.role-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: baseline;
+}
+
+.role-head h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 550;
+  color: #f5f4f8;
+}
+
+.role-head h4 span {
+  color: rgba(255, 255, 255, .53);
+  font-weight: 400;
+}
+
+.role time {
+  flex: none;
+  color: rgba(255, 255, 255, .4);
+  font-size: 12px;
+}
+
+.role ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 7px 25px;
+  margin: 14px 0 0;
+  padding-left: 17px;
+  color: rgba(255, 255, 255, .59);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.role li::marker {
+  color: #b9abff;
+}
+
+.education-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.education-grid article {
+  padding: 18px;
+  border-left: 1px solid rgba(185, 171, 255, .55);
+  background: rgba(255, 255, 255, .025);
+}
+
+.education-grid p span {
+  display: block;
+  color: rgba(255, 255, 255, .4);
+  margin-top: 4px;
+}
+
+.portfolio-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: center;
+  padding: 22px 0 12px;
+  margin-top: 50px;
+  border-top: 1px solid rgba(255, 255, 255, .16);
+  font-size: 13px;
+}
+
+.portfolio-footer a {
+  color: rgba(255, 255, 255, .72);
+  transition: color .2s ease;
+}
+
+.portfolio-footer a:hover {
+  color: #c6baff;
+}
+
+.portfolio-footer div {
+  display: flex;
+  gap: 22px;
+}
+
+.fb-portfolio {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 3rem 5.5% 6rem;
+  color: rgba(255, 255, 255, .65);
+}
+
+.fb-portfolio section {
+  margin: 0 0 3.5rem;
+  scroll-margin-top: 24px;
+}
+
+.fb-portfolio h2 {
+  margin: 0 0 16px;
+  max-width: 760px;
+  color: #fff;
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.05;
+  letter-spacing: -.04em;
+}
+
+.fb-portfolio section>p:not(.portfolio-kicker) {
+  max-width: 760px;
+  line-height: 1.7;
+}
+
+.fb-portfolio .role p {
+  color: rgba(255, 255, 255, .59);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.fb-portfolio .portfolio-footer {
+  margin-top: 0;
+}
+
+.fb-hero .fb-pill {
+  text-decoration: none;
+}
+
 @media (max-width: 760px) {
-  .portfolio .portfolio-col { width: 84%; margin: 245px auto 54px; }
-  .portfolio-kicker { font-size: 9px; letter-spacing: .11em; }
-  .portfolio h2 { font-size: 30px; }
-  .portfolio-summary { font-size: 14px; }
-  .portfolio-section { margin-top: 38px; }
-  .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
-  .metric { min-height: 82px; padding: 13px; }
-  .metric span { font-size: 11px; }
-  .stack-grid { grid-template-columns: 1fr; }
-  .role-head { display: block; }
-  .role-head h4 { font-size: 15px; }
-  .role time { display: block; margin-top: 5px; }
-  .role ul { grid-template-columns: 1fr; }
-  .education-grid { grid-template-columns: 1fr; }
-  .portfolio-footer { display: block; }
-  .portfolio-footer div { margin-top: 15px; gap: 18px; }
-  .fb-portfolio { padding-top: 2rem; }
-  .fb-portfolio .stack-grid { grid-template-columns: 1fr; }
-  .fb-portfolio .role-head { display: block; }
-  .fb-portfolio .role time { display: block; margin-top: 5px; }
-  .fb-portfolio .education-grid { grid-template-columns: 1fr; }
+  .portfolio .portfolio-col {
+    width: 84%;
+    margin: 245px auto 54px;
+  }
+
+  .portfolio .portfolio-col {
+    margin-left: auto;
+  }
+
+  .portfolio-kicker {
+    font-size: 9px;
+    letter-spacing: .11em;
+  }
+
+  .portfolio h2 {
+    font-size: 30px;
+  }
+
+  .portfolio-summary {
+    font-size: 14px;
+  }
+
+  .portfolio-section {
+    margin-top: 38px;
+  }
+
+  .metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .metric {
+    min-height: 82px;
+    padding: 13px;
+  }
+
+  .metric span {
+    font-size: 11px;
+  }
+
+  .stack-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .role-head {
+    display: block;
+  }
+
+  .role-head h4 {
+    font-size: 15px;
+  }
+
+  .role time {
+    display: block;
+    margin-top: 5px;
+  }
+
+  .role ul {
+    grid-template-columns: 1fr;
+  }
+
+  .education-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-footer {
+    display: block;
+  }
+
+  .portfolio-footer div {
+    margin-top: 15px;
+    gap: 18px;
+  }
+
+  .fb-portfolio {
+    padding-top: 2rem;
+  }
+
+  .fb-portfolio .stack-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fb-portfolio .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fb-portfolio .role-head {
+    display: block;
+  }
+
+  .fb-portfolio .role time {
+    display: block;
+    margin-top: 5px;
+  }
+
+  .fb-portfolio .education-grid {
+    grid-template-columns: 1fr;
+  }
 }
+
 @media (prefers-reduced-motion: reduce) {
-  .portfolio-footer a { transition: none; }
+  .portfolio-footer a {
+    transition: none;
+  }
 }
